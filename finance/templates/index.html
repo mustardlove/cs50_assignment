@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Current State
+{% endblock %}
+
+{% block main %}
+    <h1>Stocks Owned</h1>
+    <table>
+        <tr>
+            <th>Stock Symbol</th>
+            <th>Number of Shares</th>
+            <th>Current Price of Stock</th>
+            <th>TOTAL</th>
+        </tr>
+        {% for record in records %}
+        <tr>
+            <td>{{ record['symbol'] }}</td>
+            <td>{{ record['shares'] }}</td>
+            <td>${{ record['price'] }}</td>
+            <td>${{ record['total'] }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td>CASH</td>
+            <td></td>
+            <td></td>
+            <td>${{ cash }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$10000.00</td>
+        </tr>
+
+
+{% endblock %}

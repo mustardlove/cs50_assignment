@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Current State
+{% endblock %}
+
+{% block main %}
+
+    <form onsubmit="test(); return false;">
+        <input name="user" id="user-name" type="text">
+        <input name="password" type="password">
+        <button type="submit">submit</button>
+    </form>
+
+
+    <script>
+        function test() {
+            const user = $('#user-name').val();
+            const url = '/test?q=' + user
+            $.getJSON(url, function(data) {
+                alert(data.length);
+            })
+        }
+    </script>
+
+{% endblock %}
+
